@@ -19,6 +19,12 @@ function Ex03(){
         </br>
         <img src="https://picsum.photos/id/1001/500/500" 
          style={imageStyle}/>
+        <hr/>
+
+        <input type="range" min={150} max={450} value={size}
+        onChange={e=>setSize(parseInt(e.target.value))}/>
+        {size}
+
         
         </>
     )
