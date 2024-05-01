@@ -29,6 +29,15 @@ function Menu() {
                                     <NavLink className='dropdown-item' to='/ex051234'>숭구리당당</NavLink>
                                 </div>
                             </li>
+
+                            <li className="nav-item dropdown">
+                                <a className="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">포킷몬</a>
+                                <div className="dropdown-menu">
+                                    <NavLink className='dropdown-item' to='/ppp'>포켓몬</NavLink>
+                                    <NavLink className='dropdown-item' to='/eee'>EMP원본</NavLink>
+                                    <NavLink className='dropdown-item' to='/digimon'>디지몬</NavLink>
+                                </div>
+                            </li>
                         </ul>
                         <form className="d-flex">
                             <input className="form-control me-sm-2" type="search" placeholder="Search" />

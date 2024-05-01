@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>영화관 좌석 선택</title>
+    <script src="https://kit.fontawesome.com/21cc7afbfc.js" crossorigin="anonymous"></script>
+    <style>
+        .seat-container {
+            display: flex;
+            flex-wrap: wrap;
+            width: 520px;
+        }
+        .seat {
+            margin: 5px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        
+    </style>
+</head>
+<body>
+
+<div id="seatMap" class="seat-container"></div>
+
+<script>
+    function createSeatMap() {
+        const seatMap = document.getElementById('seatMap');
+        for (let row = 'A'.charCodeAt(0); row <= 'K'.charCodeAt(0); row++) {
+            for (let col = 1; col <= 12; col++) {
+                // 아이콘 생성
+                const seat = document.createElement('i');
+                seat.className = 'fa-regular fa-square seat'; // 기본상태 아이콘 클래스
+                seat.dataset.seatId = `${String.fromCharCode(row)}${col}`;
+
+                seat.addEventListener('click', function() {
+                    // 선택 상태 토글
+                    this.classList.toggle('fa-regular');
+                    this.classList.toggle('fa-solid');
+                    this.classList.toggle('selected');
+                });
+
+                seatMap.appendChild(seat);
+            }
+            // 각 줄마다 줄바꿈 추가
+            seatMap.appendChild(document.createElement('br'));
+        }
+    }
+
+    // 페이지 로드 시 좌석 맵 생성
+    window.onload = createSeatMap;
+</script>
+
+</body>
+</html>

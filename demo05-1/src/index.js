@@ -7,16 +7,17 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootswatch/dist/cerulean/bootstrap.min.css';
 import 'bootstrap';
 import { BrowserRouter, HashRouter } from 'react-router-dom';
+import { RecoilRoot } from 'recoil';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <>
- 
-    <HashRouter>
+  <RecoilRoot>
+  <HashRouter>
     <App />
     </HashRouter>
-  
-  </>
+    </RecoilRoot>
+    </>
 );
 
 // If you want to start measuring performance in your app, pass a function

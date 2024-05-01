@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<style>
+  .theater { display: flex; flex-direction: column; align-items: center; }
+  .row { display: flex; }
+  .seat { width: 30px; height: 30px; margin: 5px; background-color: #444; }
+  .aisle { visibility: hidden; }
+</style>
+</head>
+<body>
+<div id="theater" class="theater"></div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const theater = document.getElementById('theater');
+  const seatsData = [
+    { x: 1, y: 1 }, { x: 1, y: 2 }, { x: 1, y: 3 }, { x: 1, y: 4 },
+    { x: 3, y: 1 }, { x: 3, y: 2 }
+  ];
+
+  // 데이터로부터 좌석의 최대 x, y 값을 구합니다.
+  const maxX = Math.max(...seatsData.map(seat => seat.x));
+  const maxY = Math.max(...seatsData.map(seat => seat.y));
+
+  // 좌석을 생성합니다.
+  for (let i = 1; i <= maxX; i++) {
+    const row = document.createElement('div');
+    row.className = 'row';
+    
+    for (let j = 1; j <= maxY; j++) {
+      const seatDiv = document.createElement('div');
+      seatDiv.className = 'seat';
+
+      // 현재 좌석이 데이터에 존재하는지 확인합니다.
+      const seatExists = seatsData.some(seat => seat.x === i && seat.y === j);
+      if (!seatExists) {
+        // 데이터에 없는 좌석은 표시하지 않습니다.
+        seatDiv.className += ' aisle';
+      }
+
+      row.appendChild(seatDiv);
+    }
+    theater.appendChild(row);
+  }
+});
+
+</script>
+</body>
+</html>
